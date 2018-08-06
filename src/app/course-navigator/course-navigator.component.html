@@ -1,0 +1,63 @@
+<div class='row'>
+
+    <div class='col-md-3'>
+      <ul class='list-group'>
+        <h3 class='list-group-item'>Courses</h3>
+        <li (click)='selectCourse(course)'
+            [ngClass]="{'active' : course.id === selectedCourse.id}"
+            *ngFor='let course of courses'
+            class='list-group-item'>
+          {{course.title}} - {{course.id}}
+        </li>
+      </ul>
+    </div>
+
+    <div class='col-md-3'>
+      <ul class='list-group'>
+        <h3 class='list-group-item'>Modules</h3>
+        <li (click)='selectModule(module)'
+            [ngClass]="{'active' : module.id === selectedModule.id}"
+            *ngFor='let module of selectedCourse.modules'
+            class='list-group-item'>
+          {{module.title}} - {{module.id}}
+        </li>
+      </ul>
+    </div>
+
+    <div class='col-md-2'>
+      <ul class='list-group'>
+        <h3 class='list-group-item'>Lessons</h3>
+        <li (click)='selectLesson(lesson)'
+            [ngClass]="{'active' : lesson.id === selectedLesson.id}"
+            *ngFor='let lesson of selectedModule.lessons'
+            class='list-group-item'>
+          {{lesson.title}} - {{lesson.id}}
+        </li>
+      </ul>
+    </div>
+
+    <div class='col-md-2'>
+      <ul class='list-group'>
+        <h3 class='list-group-item'>Topics</h3>
+        <li (click)='selectTopic(topic)'
+            [ngClass]="{'active' : topic.id === selectedTopic.id}"
+            *ngFor='let topic of selectedLesson.topics'
+            class='list-group-item'>
+          {{topic.title}} - {{topic.id}}
+        </li>
+      </ul>
+    </div>
+
+    <div class='col-md-2'>
+      <ul class='list-group'>
+        <h3 class='list-group-item'>Widgets</h3>
+        <li (click)='selectWidget(widget)'
+            [ngClass]="{'active' : widget.id === selectedWidget.id}"
+            *ngFor='let widget of selectedTopic.widgets'
+            class='list-group-item'>
+          {{widget.name}} - {{widget.id}}
+        </li>
+      </ul>
+    </div>
+
+  </div>
