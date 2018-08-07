@@ -8,12 +8,12 @@ import { CourseServiceClient } from '../services/course.service.client';
 })
 export class CourseNavigatorComponent implements OnInit {
 
-    courses = [];
-    selectedCourse = {};
-    selectedModule = {};
-    selectedLesson = {};
-    selectedTopic = {};
-    selectedWidget = {};
+    courses: any = [];
+    selectedCourse: any = {};
+    selectedModule: any = {};
+    selectedLesson: any = {};
+    selectedTopic: any = {};
+    selectedWidget: any = {};
 
     constructor(private courseService: CourseServiceClient) { }
 
