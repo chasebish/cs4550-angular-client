@@ -1,7 +1,7 @@
 import { Injectable } from '../../../node_modules/@angular/core';
 
 @Injectable()
-export default class UserServiceClient {
+export class UserServiceClient {
 
     private WHITEBOARD_URL = 'http://localhost:3000';
 
