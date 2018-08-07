@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import UserServiceClient from '../services/user.service.client';
 
 @Component({
   selector: 'app-register',
@@ -7,9 +8,29 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RegisterComponent implements OnInit {
 
-  constructor() { }
+    private username: String;
+    private password: String;
+    private confirmPassword: String;
 
-  ngOnInit() {
-  }
+    constructor(private userService: UserServiceClient) { }
+
+    register = (username, password, confirmPassword) => {
+
+        if (password !== confirmPassword) {
+            console.log(username, password, confirmPassword);
+            alert('Passwords must be the same');
+            return;
+        }
+
+        const user = {
+            username,
+            password,
+        };
+        console.log(user);
+        this.userService.register(user);
+    }
+
+    ngOnInit() {
+    }
 
 }

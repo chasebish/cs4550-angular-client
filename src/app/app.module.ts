@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
 import { routing } from './app.routing';
 
@@ -10,6 +11,7 @@ import { CourseNavigatorComponent } from './course-navigator/course-navigator.co
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { ProfileComponent } from './profile/profile.component';
+import UserServiceClient from './services/user.service.client';
 
 @NgModule({
   declarations: [
@@ -21,11 +23,13 @@ import { ProfileComponent } from './profile/profile.component';
     ProfileComponent
   ],
   imports: [
-    routing,
-    BrowserModule
+    BrowserModule,
+    FormsModule,
+    routing
   ],
   providers: [
-    CourseServiceClient
+    CourseServiceClient,
+    UserServiceClient
   ],
   bootstrap: [AppComponent]
 })
