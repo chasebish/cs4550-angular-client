@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { UserServiceClient } from '../services/user.service.client';
+import { Router } from '../../../node_modules/@angular/router';
 
 @Component({
-  selector: 'app-register',
-  templateUrl: './register.component.html',
-  styleUrls: ['./register.component.css']
+    selector: 'app-register',
+    templateUrl: './register.component.html',
+    styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
 
@@ -12,12 +13,11 @@ export class RegisterComponent implements OnInit {
     password: String;
     confirmPassword: String;
 
-    constructor(private userService: UserServiceClient) { }
+    constructor(private router: Router, private userService: UserServiceClient) { }
 
     register = (username, password, confirmPassword) => {
 
         if (password !== confirmPassword) {
-            console.log(username, password, confirmPassword);
             alert('Passwords must be the same');
             return;
         }
@@ -26,8 +26,8 @@ export class RegisterComponent implements OnInit {
             username,
             password,
         };
-        console.log(user);
-        this.userService.register(user);
+        this.userService.register(user)
+            .then(() => this.router.navigate(['profile']), () => alert('Username not available'));
     }
 
     ngOnInit() {

@@ -1,3 +1,17 @@
-<p>
-  profile works!
-</p>
+<div>
+    <h3>Profile</h3>
+    <label for='username' class='mt-2 mb-0'>Username</label>
+    <input [(ngModel)]='username' id='username' class='form-control' />
+    <label for='password' class='mt-2 mb-0'>Password</label>
+    <input [(ngModel)]='password' id='password' class='form-control' type='password' />
+    <label for='firstName' class='mt-2 mb-0'>First Name</label>
+    <input [(ngModel)]='firstName' id='firstName' class='form-control' />
+    <label for='lastName' class='mt-2 mb-0'>Last Name</label>
+    <input [(ngModel)]='lastName' id='lastName' class='form-control' />
+    <button (click)='register(username, password, confirmPassword)' class='btn btn-success btn-block mt-3'>
+        Update User
+    </button>
+    <button (click)='logout()' class='btn btn-danger btn-block mt-3'>
+        Logout
+    </button>
+</div>

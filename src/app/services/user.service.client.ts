@@ -13,7 +13,8 @@ export class UserServiceClient {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify(user)
-        });
+        })
+            .then(response => response.json());
     }
 
     login = user => {
@@ -24,7 +25,8 @@ export class UserServiceClient {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify(user)
-        });
+        })
+            .then(response => response.json());
     }
 
     logout = () => {
@@ -32,5 +34,12 @@ export class UserServiceClient {
             method: 'POST',
             credentials: 'include'
         });
+    }
+
+    currentUser = () => {
+        return fetch(`${this.WHITEBOARD_URL}/api/currentuser`, {
+            credentials: 'include'
+        })
+            .then(response => response.json());
     }
 }
