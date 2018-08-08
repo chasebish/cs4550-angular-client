@@ -3,10 +3,10 @@ import { Injectable } from '../../../node_modules/@angular/core';
 @Injectable()
 export class UserServiceClient {
 
-    private WHITEBOARD_URL = 'http://localhost:3000';
+    private NODE_WHITEBOARD_URL = 'http://localhost:3000';
 
     register = user => {
-        return fetch(`${this.WHITEBOARD_URL}/api/register`, {
+        return fetch(`${this.NODE_WHITEBOARD_URL}/api/register`, {
             method: 'POST',
             credentials: 'include',
             headers: {
@@ -18,7 +18,7 @@ export class UserServiceClient {
     }
 
     login = user => {
-        return fetch(`${this.WHITEBOARD_URL}/api/login`, {
+        return fetch(`${this.NODE_WHITEBOARD_URL}/api/login`, {
             method: 'POST',
             credentials: 'include',
             headers: {
@@ -30,14 +30,14 @@ export class UserServiceClient {
     }
 
     logout = () => {
-        return fetch(`${this.WHITEBOARD_URL}/api/logout`, {
+        return fetch(`${this.NODE_WHITEBOARD_URL}/api/logout`, {
             method: 'POST',
             credentials: 'include'
         });
     }
 
     currentUser = () => {
-        return fetch(`${this.WHITEBOARD_URL}/api/currentuser`, {
+        return fetch(`${this.NODE_WHITEBOARD_URL}/api/currentuser`, {
             credentials: 'include'
         })
             .then(response => response.json());

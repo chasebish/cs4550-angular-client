@@ -13,6 +13,7 @@ import { RegisterComponent } from './register/register.component';
 import { ProfileComponent } from './profile/profile.component';
 import { UserServiceClient } from './services/user.service.client';
 import { SectionsComponent } from './sections/sections.component';
+import { SectionServiceClient } from './services/section.service.client';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { SectionsComponent } from './sections/sections.component';
   ],
   providers: [
     CourseServiceClient,
+    SectionServiceClient,
     UserServiceClient
   ],
   bootstrap: [AppComponent]

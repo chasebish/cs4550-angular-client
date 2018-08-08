@@ -3,9 +3,11 @@ import { CourseNavigatorComponent } from './course-navigator/course-navigator.co
 import { LoginComponent } from './login/login.component';
 import { ProfileComponent } from './profile/profile.component';
 import { RegisterComponent } from './register/register.component';
+import { SectionsComponent } from './sections/sections.component';
 
 const appRoutes: Routes = [
   { path: 'courses', component: CourseNavigatorComponent },
+  { path: 'sections', component: SectionsComponent },
   { path: 'profile', component: ProfileComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginComponent }
