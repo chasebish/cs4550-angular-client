@@ -18,6 +18,8 @@ import { EnrollmentComponent } from './enrollment/enrollment.component';
 import { HomeComponent } from './home/home.component';
 import { CourseViewerComponent } from './course-viewer/course-viewer.component';
 import { CourseSectionsComponent } from './course-sections/course-sections.component';
+import { CourseModulesComponent } from './course-modules/course-modules.component';
+import { ModuleServiceClient } from './services/module.service.client';
 
 @NgModule({
   declarations: [
@@ -31,7 +33,8 @@ import { CourseSectionsComponent } from './course-sections/course-sections.compo
     EnrollmentComponent,
     HomeComponent,
     CourseViewerComponent,
-    CourseSectionsComponent
+    CourseSectionsComponent,
+    CourseModulesComponent
   ],
   imports: [
     BrowserModule,
@@ -40,6 +43,7 @@ import { CourseSectionsComponent } from './course-sections/course-sections.compo
   ],
   providers: [
     CourseServiceClient,
+    ModuleServiceClient,
     SectionServiceClient,
     UserServiceClient
   ],

@@ -1,12 +1,12 @@
 import { Injectable } from '../../../node_modules/@angular/core';
 
 @Injectable()
-export class CourseServiceClient {
+export class ModuleServiceClient {
 
     private WHITEBOARD_URL = 'https://whiteboard-server-chasebish.herokuapp.com/api';
 
-    findAllCourses() {
-        return fetch(`${this.WHITEBOARD_URL}/course`)
+    findModulesForCourse(courseId: String) {
+        return fetch(`${this.WHITEBOARD_URL}/course/${courseId}/module`)
             .then(response => response.json());
     }
 }

@@ -17,7 +17,7 @@
     <input [(ngModel)]='address' id='address' class='form-control' />
     <label for='role' class='mt-2 mb-0'>Role</label>
     <input [(ngModel)]='role' id='role' class='disabled form-control' placeholder='N/A' readonly />
-    <button (click)='updateUser(username, password, firstName, lastName, phone, email, address)' class='btn btn-success btn-block mt-3'>
+    <button (click)='updateUser(password, firstName, lastName, phone, email, address)' class='btn btn-success btn-block mt-3'>
         Update User
     </button>
     <button (click)='logout()' class='btn btn-danger btn-block mt-3'>
