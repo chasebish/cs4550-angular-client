@@ -1,3 +1,13 @@
-<p>
-  lesson-topics works!
-</p>
+<div *ngIf='topics.length > 0'>
+    <ul class='nav nav-pills'>
+        <li class='nav-item'>
+            <a class='nav-link'>Topics</a>
+        </li>
+        <li *ngFor='let topic of topics' class='nav-item'>
+            <a [ngClass]="{'active' : topic.id === topicId}" routerLink='/course/{{courseId}}/module/{{moduleId}}/lesson/{{lessonId}}/topic/{{topic.id}}'
+                class='nav-link'>
+                {{topic.title}} - {{topic.id}}
+            </a>
+        </li>
+    </ul>
+</div>

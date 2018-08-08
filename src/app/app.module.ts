@@ -23,6 +23,7 @@ import { ModuleServiceClient } from './services/module.service.client';
 import { ModuleLessonsComponent } from './module-lessons/module-lessons.component';
 import { LessonTopicsComponent } from './lesson-topics/lesson-topics.component';
 import { LessonServiceClient } from './services/lesson.service.client';
+import { TopicServiceClient } from './services/topic.service.client';
 
 @NgModule({
   declarations: [
@@ -50,6 +51,7 @@ import { LessonServiceClient } from './services/lesson.service.client';
     CourseServiceClient,
     ModuleServiceClient,
     LessonServiceClient,
+    TopicServiceClient,
     SectionServiceClient,
     UserServiceClient
   ],

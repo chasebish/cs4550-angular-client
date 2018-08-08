@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { LessonServiceClient } from '../services/lesson.service.client';
+import { TopicServiceClient } from '../services/topic.service.client';
 import { ActivatedRoute } from '../../../node_modules/@angular/router';
 
 @Component({
@@ -15,7 +15,7 @@ export class LessonTopicsComponent implements OnInit {
     lessonId: String;
     topicId: String;
 
-    constructor(private lessonService: LessonServiceClient, private route: ActivatedRoute) { }
+    constructor(private topicService: TopicServiceClient, private route: ActivatedRoute) { }
 
     ngOnInit() {
         this.route.params.subscribe(params => {
@@ -23,8 +23,11 @@ export class LessonTopicsComponent implements OnInit {
             this.moduleId = params.moduleId;
             this.lessonId = params.lessonId;
             this.topicId = params.topicId;
-            // this.lessonService.findLessonsForModule(this.courseId, this.moduleId)
-            //     .then(lessons => this.lessons = lessons);
+            this.topicService.findTopicsForLesson(this.courseId, this.moduleId, this.lessonId)
+                .then(topics => {
+                    this.topics = topics;
+                    console.log(this.topics);
+                });
         });
     }
 
