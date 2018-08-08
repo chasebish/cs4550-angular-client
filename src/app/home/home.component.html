@@ -6,8 +6,10 @@
                 <div class="card-body">
                     <h5 class="card-title">{{course.title}}</h5>
                     <p class="card-text"></p>
-                    <a routerLink="/course/{{course.id}}" class="btn btn-primary">View</a>
-                    <a routerLink="/course/{{course.id}}/sections" class="btn btn-primary">Enroll</a>
+                    <div class='btn-toolbar'>
+                        <a routerLink="/course/{{course.id}}" class="btn btn-primary mr-1">View</a>
+                        <a routerLink="/course/{{course.id}}/sections" class="btn btn-primary ml-1">Sections</a>
+                    </div>
                 </div>
             </div>
         </div>
