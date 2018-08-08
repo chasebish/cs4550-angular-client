@@ -14,6 +14,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { UserServiceClient } from './services/user.service.client';
 import { SectionsComponent } from './sections/sections.component';
 import { SectionServiceClient } from './services/section.service.client';
+import { EnrollmentComponent } from './enrollment/enrollment.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { SectionServiceClient } from './services/section.service.client';
     LoginComponent,
     RegisterComponent,
     ProfileComponent,
-    SectionsComponent
+    SectionsComponent,
+    EnrollmentComponent
   ],
   imports: [
     BrowserModule,

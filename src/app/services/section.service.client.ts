@@ -10,6 +10,7 @@ export class SectionServiceClient {
             method: 'put',
             credentials: 'include'
         })
+            .then(response => response.json())
 
     findAllSections = () =>
         fetch(`${this.NODE_WHITEBOARD_URL}/section`)
