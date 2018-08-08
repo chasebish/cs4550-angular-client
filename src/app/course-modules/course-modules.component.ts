@@ -19,8 +19,10 @@ export class CourseModulesComponent implements OnInit {
         this.route.params.subscribe(params => {
             this.courseId = params.courseId;
             this.moduleId = params.moduleId;
-            this.moduleService.findModulesForCourse(this.courseId)
-                .then(modules => this.modules = modules);
+            if (this.courseId) {
+                this.moduleService.findModulesForCourse(this.courseId)
+                    .then(modules => this.modules = modules);
+            }
         });
     }
 

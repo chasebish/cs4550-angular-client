@@ -23,11 +23,10 @@ export class LessonTopicsComponent implements OnInit {
             this.moduleId = params.moduleId;
             this.lessonId = params.lessonId;
             this.topicId = params.topicId;
-            this.topicService.findTopicsForLesson(this.courseId, this.moduleId, this.lessonId)
-                .then(topics => {
-                    this.topics = topics;
-                    console.log(this.topics);
-                });
+            if (this.courseId && this.moduleId && this.lessonId) {
+                this.topicService.findTopicsForLesson(this.courseId, this.moduleId, this.lessonId)
+                    .then(topics => this.topics = topics);
+            }
         });
     }
 

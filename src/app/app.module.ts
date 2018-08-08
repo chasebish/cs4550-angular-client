@@ -24,6 +24,7 @@ import { ModuleLessonsComponent } from './module-lessons/module-lessons.componen
 import { LessonTopicsComponent } from './lesson-topics/lesson-topics.component';
 import { LessonServiceClient } from './services/lesson.service.client';
 import { TopicServiceClient } from './services/topic.service.client';
+import { TopicWidgetsComponent } from './topic-widgets/topic-widgets.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { TopicServiceClient } from './services/topic.service.client';
     CourseSectionsComponent,
     CourseModulesComponent,
     ModuleLessonsComponent,
-    LessonTopicsComponent
+    LessonTopicsComponent,
+    TopicWidgetsComponent
   ],
   imports: [
     BrowserModule,

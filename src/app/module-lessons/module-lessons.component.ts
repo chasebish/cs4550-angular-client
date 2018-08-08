@@ -21,8 +21,10 @@ export class ModuleLessonsComponent implements OnInit {
             this.courseId = params.courseId;
             this.moduleId = params.moduleId;
             this.lessonId = params.lessonId;
-            this.lessonService.findLessonsForModule(this.courseId, this.moduleId)
-                .then(lessons => this.lessons = lessons);
+            if (this.courseId && this.moduleId) {
+                this.lessonService.findLessonsForModule(this.courseId, this.moduleId)
+                    .then(lessons => this.lessons = lessons);
+            }
         });
     }
 
