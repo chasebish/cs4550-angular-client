@@ -13,6 +13,10 @@ export class ProfileComponent implements OnInit {
     password: String;
     firstName: String;
     lastName: String;
+    phone: String;
+    email: String;
+    address: String;
+    role: String;
 
     constructor(private router: Router, private userService: UserServiceClient) { }
 
@@ -23,10 +27,27 @@ export class ProfileComponent implements OnInit {
                 this.password = user.password;
                 this.firstName = user.firstName;
                 this.lastName = user.lastName;
+                this.phone = user.phone;
+                this.email = user.email;
+                this.address = user.address;
+                this.role = user.role;
             }, () => {
                 this.router.navigate(['login']);
                 alert('You aren\'t logged in!');
             });
+    }
+
+    updateUser = (password, firstName, lastName, phone, email, address) => {
+        const newUser = {
+            password,
+            firstName,
+            lastName,
+            phone,
+            email,
+            address,
+        };
+        this.userService.updateUser(newUser)
+            .then(() => alert('Profile Updated!'), () => alert('There was an issue updating your profile'));
     }
 
     logout = () => {

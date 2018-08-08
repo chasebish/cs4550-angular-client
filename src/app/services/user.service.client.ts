@@ -3,10 +3,10 @@ import { Injectable } from '../../../node_modules/@angular/core';
 @Injectable()
 export class UserServiceClient {
 
-    private NODE_WHITEBOARD_URL = 'http://localhost:3000';
+    private NODE_WHITEBOARD_URL = 'http://localhost:3000/api';
 
     register = user => {
-        return fetch(`${this.NODE_WHITEBOARD_URL}/api/register`, {
+        return fetch(`${this.NODE_WHITEBOARD_URL}/register`, {
             method: 'POST',
             credentials: 'include',
             headers: {
@@ -18,7 +18,7 @@ export class UserServiceClient {
     }
 
     login = user => {
-        return fetch(`${this.NODE_WHITEBOARD_URL}/api/login`, {
+        return fetch(`${this.NODE_WHITEBOARD_URL}/login`, {
             method: 'POST',
             credentials: 'include',
             headers: {
@@ -29,15 +29,27 @@ export class UserServiceClient {
             .then(response => response.json());
     }
 
+    updateUser = user => {
+        return fetch(`${this.NODE_WHITEBOARD_URL}/profile`, {
+            method: 'PUT',
+            credentials: 'include',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(user)
+        })
+            .then(response => response.json());
+    }
+
     logout = () => {
-        return fetch(`${this.NODE_WHITEBOARD_URL}/api/logout`, {
+        return fetch(`${this.NODE_WHITEBOARD_URL}/logout`, {
             method: 'POST',
             credentials: 'include'
         });
     }
 
     currentUser = () => {
-        return fetch(`${this.NODE_WHITEBOARD_URL}/api/currentuser`, {
+        return fetch(`${this.NODE_WHITEBOARD_URL}/currentuser`, {
             credentials: 'include'
         })
             .then(response => response.json());

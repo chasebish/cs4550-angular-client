@@ -2,14 +2,22 @@
     <h3>Profile</h3>
     <h5>Welcome {{username}}</h5>
     <label for='username' class='mt-2 mb-0'>Username</label>
-    <input [(ngModel)]='username' id='username' class='form-control' />
+    <input [(ngModel)]='username' id='username' class='form-control' readonly />
     <label for='password' class='mt-2 mb-0'>Password</label>
     <input [(ngModel)]='password' id='password' class='form-control' type='password' />
     <label for='firstName' class='mt-2 mb-0'>First Name</label>
     <input [(ngModel)]='firstName' id='firstName' class='form-control' />
     <label for='lastName' class='mt-2 mb-0'>Last Name</label>
     <input [(ngModel)]='lastName' id='lastName' class='form-control' />
-    <button (click)='register(username, password, confirmPassword)' class='btn btn-success btn-block mt-3'>
+    <label for='phone' class='mt-2 mb-0'>Phone</label>
+    <input [(ngModel)]='phone' id='phone' class='form-control' />
+    <label for='email' class='mt-2 mb-0'>Email</label>
+    <input [(ngModel)]='email' id='email' class='form-control' />
+    <label for='address' class='mt-2 mb-0'>Address</label>
+    <input [(ngModel)]='address' id='address' class='form-control' />
+    <label for='role' class='mt-2 mb-0'>Role</label>
+    <input [(ngModel)]='role' id='role' class='disabled form-control' placeholder='N/A' readonly />
+    <button (click)='updateUser(username, password, firstName, lastName, phone, email, address)' class='btn btn-success btn-block mt-3'>
         Update User
     </button>
     <button (click)='logout()' class='btn btn-danger btn-block mt-3'>

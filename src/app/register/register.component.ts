@@ -22,11 +22,12 @@ export class RegisterComponent implements OnInit {
             return;
         }
 
-        const user = {
+        const newUser = {
             username,
             password,
+            role: 'STUDENT'
         };
-        this.userService.register(user)
+        this.userService.register(newUser)
             .then(() => this.router.navigate(['profile']), () => alert('Username not available'));
     }
 
