@@ -5,8 +5,10 @@ import { ProfileComponent } from './profile/profile.component';
 import { RegisterComponent } from './register/register.component';
 import { SectionsComponent } from './sections/sections.component';
 import { EnrollmentComponent } from './enrollment/enrollment.component';
+import { HomeComponent } from './home/home.component';
 
 const appRoutes: Routes = [
+  { path: '', component: HomeComponent },
   { path: 'courses', component: CourseNavigatorComponent },
   { path: 'sections', component: SectionsComponent },
   { path: 'enrollment', component: EnrollmentComponent },

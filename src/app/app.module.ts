@@ -15,6 +15,7 @@ import { UserServiceClient } from './services/user.service.client';
 import { SectionsComponent } from './sections/sections.component';
 import { SectionServiceClient } from './services/section.service.client';
 import { EnrollmentComponent } from './enrollment/enrollment.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { EnrollmentComponent } from './enrollment/enrollment.component';
     RegisterComponent,
     ProfileComponent,
     SectionsComponent,
-    EnrollmentComponent
+    EnrollmentComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
