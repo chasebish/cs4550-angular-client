@@ -1,7 +1,7 @@
 <div>
     <ul class='list-group'>
         <li class='list-group-item topListItem'>Modules</li>
-        <li (click)='selectModule(module)' *ngFor='let module of modules' class='list-group-item'>
+        <li routerLink='/course/{{courseId}}/module/{{module.id}}' [ngClass]="{'active' : module.id.toString() === moduleId}" *ngFor='let module of modules' class='list-group-item'>
             {{module.title}} - {{module.id}}
         </li>
     </ul>

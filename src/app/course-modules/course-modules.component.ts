@@ -11,17 +11,17 @@ export class CourseModulesComponent implements OnInit {
 
     modules: any = [];
     courseId: String;
-    selectedModuleId: String;
+    moduleId: String;
 
-    constructor(private moduleService: ModuleServiceClient, private route: ActivatedRoute) {
-        this.route.params.subscribe(params => {
-            this.selectedModuleId = params.moduleId;
-            this.moduleService.findModulesForCourse(params.courseId)
-                .then(modules => this.modules = modules);
-        });
-    }
+    constructor(private moduleService: ModuleServiceClient, private route: ActivatedRoute) { }
 
     ngOnInit() {
+        this.route.params.subscribe(params => {
+            this.courseId = params.courseId;
+            this.moduleId = params.moduleId;
+            this.moduleService.findModulesForCourse(this.courseId)
+                .then(modules => this.modules = modules);
+        });
     }
 
 }

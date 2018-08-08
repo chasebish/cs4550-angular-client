@@ -20,6 +20,9 @@ import { CourseViewerComponent } from './course-viewer/course-viewer.component';
 import { CourseSectionsComponent } from './course-sections/course-sections.component';
 import { CourseModulesComponent } from './course-modules/course-modules.component';
 import { ModuleServiceClient } from './services/module.service.client';
+import { ModuleLessonsComponent } from './module-lessons/module-lessons.component';
+import { LessonTopicsComponent } from './lesson-topics/lesson-topics.component';
+import { LessonServiceClient } from './services/lesson.service.client';
 
 @NgModule({
   declarations: [
@@ -34,7 +37,9 @@ import { ModuleServiceClient } from './services/module.service.client';
     HomeComponent,
     CourseViewerComponent,
     CourseSectionsComponent,
-    CourseModulesComponent
+    CourseModulesComponent,
+    ModuleLessonsComponent,
+    LessonTopicsComponent
   ],
   imports: [
     BrowserModule,
@@ -44,6 +49,7 @@ import { ModuleServiceClient } from './services/module.service.client';
   providers: [
     CourseServiceClient,
     ModuleServiceClient,
+    LessonServiceClient,
     SectionServiceClient,
     UserServiceClient
   ],

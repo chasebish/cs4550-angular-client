@@ -13,6 +13,8 @@ const appRoutes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'course', component: CourseNavigatorComponent },
   { path: 'course/:courseId', component: CourseViewerComponent },
+  { path: 'course/:courseId/module/:moduleId', component: CourseViewerComponent },
+  { path: 'course/:courseId/module/:moduleId/lesson/:lessonId', component: CourseViewerComponent },
   { path: 'course/:courseId/sections', component: CourseSectionsComponent },
   { path: 'section', component: SectionsComponent },
   { path: 'enrollment', component: EnrollmentComponent },
