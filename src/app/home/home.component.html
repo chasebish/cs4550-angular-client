@@ -1,13 +1,15 @@
 <div>
     <h1 class="display-1">Whiteboard</h1>
     <div *ngIf='user.username'>
-        <h3>Your Sections</h3>
-        <div class="row">
-            <div *ngFor="let section of userSections" class="col-xl-3 col-md-4 col-sm-6 mt-3">
-                <div class="card text-white bg-info">
-                    <div class="card-body">
-                        <h5 class="card-title">{{section.title}}</h5>
-                        <p class="card-text">Seats: {{section.seats}}</p>
+        <div *ngIf='userSections.length > 0'>
+            <h3>Your Sections</h3>
+            <div class="row">
+                <div *ngFor="let section of userSections" class="col-xl-3 col-md-4 col-sm-6 mt-3">
+                    <div class="card text-white bg-info">
+                        <div class="card-body">
+                            <h5 class="card-title">{{section.title}}</h5>
+                            <p class="card-text">Seats: {{section.seats}}</p>
+                        </div>
                     </div>
                 </div>
             </div>

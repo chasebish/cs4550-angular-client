@@ -34,7 +34,6 @@ export class HomeComponent implements OnInit {
             section.enrollmentId = enrollment._id;
             return section;
         });
-        console.log(this.userSections);
     }
 
 }

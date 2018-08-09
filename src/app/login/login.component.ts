@@ -14,6 +14,9 @@ export class LoginComponent implements OnInit {
 
     constructor(private router: Router, private userService: UserServiceClient) { }
 
+    ngOnInit() {
+    }
+
     login = (username, password) => {
         const user = {
             username,
@@ -23,7 +26,6 @@ export class LoginComponent implements OnInit {
             .then(() => this.router.navigate(['profile']), () => alert('Invalid User'));
     }
 
-    ngOnInit() {
-    }
+    register = () => this.router.navigate(['register']);
 
 }
