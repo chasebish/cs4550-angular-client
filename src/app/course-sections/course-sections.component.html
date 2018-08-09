@@ -1,3 +1,41 @@
-<p>
-  course-sections works!
-</p>
+<div>
+    <h2>Sections</h2>
+    <div class='row'>
+
+        <div class='col-md-6'>
+            <ul class='list-group'>
+                <li class='list-group-item topListItem'>
+                    Sections
+                </li>
+                <li *ngFor='let section of sections' class='list-group-item'>
+                    {{section.title}}
+                    <button [ngClass]="{'disabled' : disableSection(section)}" (click)='enroll(section)' class='btn btn-outline-success btn-sm float-right'>
+                        Enroll!
+                    </button>
+                    <br> Seats: {{section.seats}}
+                </li>
+            </ul>
+        </div>
+
+        <div class='col-md-6'>
+            <ul class='list-group'>
+                <li class='list-group-item topListItem'>
+                    <div *ngIf='user.username'>
+                        Sections for: {{user.username}}
+                    </div>
+                    <div *ngIf='!user.username'>
+                        Not logged in
+                    </div>
+                </li>
+                <li *ngFor='let section of userSections' class='list-group-item'>
+                    {{section.title}}
+                    <button (click)='dropSection(section)' class='btn btn-outline-warning btn-sm float-right'>
+                        Drop Section
+                    </button>
+                    <br> Seats: {{section.seats}}
+                </li>
+            </ul>
+        </div>
+
+    </div>
+</div>

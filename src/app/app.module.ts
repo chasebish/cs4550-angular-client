@@ -27,6 +27,7 @@ import { TopicServiceClient } from './services/topic.service.client';
 import { TopicWidgetsComponent } from './topic-widgets/topic-widgets.component';
 import { WidgetServiceClient } from './services/widget.service.client';
 import { AdminComponent } from './admin/admin.component';
+import { EnrollServiceClient } from './services/enroll.service.client';
 
 @NgModule({
     declarations: [
@@ -59,7 +60,8 @@ import { AdminComponent } from './admin/admin.component';
         TopicServiceClient,
         WidgetServiceClient,
         SectionServiceClient,
-        UserServiceClient
+        UserServiceClient,
+        EnrollServiceClient
     ],
     bootstrap: [AppComponent]
 })

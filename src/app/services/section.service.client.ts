@@ -47,4 +47,19 @@ export class SectionServiceClient {
             body: JSON.stringify(section)
         })
             .then(response => response.json())
+
+    getSection = sectionId =>
+        fetch(`${this.NODE_WHITEBOARD_URL}/section/${sectionId}`)
+            .then(response => response.json())
+
+
+    addSeat = sectionId =>
+        fetch(`${this.NODE_WHITEBOARD_URL}/section/${sectionId}/addseat`, {
+            method: 'put'
+        })
+
+    subSeat = sectionId =>
+        fetch(`${this.NODE_WHITEBOARD_URL}/section/${sectionId}/subseat`, {
+            method: 'put'
+        })
 }
