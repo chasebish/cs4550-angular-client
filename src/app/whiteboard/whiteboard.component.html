@@ -1,34 +1,36 @@
-<div class='container-fluid'>
-    <h1>Welcome to Whiteboard</h1>
-    <nav class='mb-2'>
-        <a routerLink="/">
-            Home
-        </a>
-        |
-        <a routerLink="/admin">
-            Admin
-        </a>
-        |
-        <a routerLink="/enrollment">
-            Enrollments
-        </a>
-        |
-        <a routerLink="/course">
-            Course Navigator
-        </a>
-        |
-        <a routerLink="/register">
-            Register
-        </a>
-        |
-        <a routerLink="/login">
-            Login
-        </a>
-        |
-        <a routerLink="/profile">
-            Profile
-        </a>
-    </nav>
+<div>
+    <app-navbar></app-navbar>
+    <div class='container-fluid'>
+        <nav class='mb-2'>
+            <a routerLink="/">
+                Home
+            </a>
+            |
+            <a routerLink="/admin">
+                Admin
+            </a>
+            |
+            <a routerLink="/enrollment">
+                Enrollments
+            </a>
+            |
+            <a routerLink="/course">
+                Course Navigator
+            </a>
+            |
+            <a routerLink="/register">
+                Register
+            </a>
+            |
+            <a routerLink="/login">
+                Login
+            </a>
+            |
+            <a routerLink="/profile">
+                Profile
+            </a>
+        </nav>
 
-    <router-outlet></router-outlet>
+        <router-outlet></router-outlet>
+    </div>
 </div>

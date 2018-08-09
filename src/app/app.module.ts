@@ -28,6 +28,7 @@ import { TopicWidgetsComponent } from './topic-widgets/topic-widgets.component';
 import { WidgetServiceClient } from './services/widget.service.client';
 import { AdminComponent } from './admin/admin.component';
 import { EnrollServiceClient } from './services/enroll.service.client';
+import { NavbarComponent } from './navbar/navbar.component';
 
 @NgModule({
     declarations: [
@@ -45,7 +46,8 @@ import { EnrollServiceClient } from './services/enroll.service.client';
         ModuleLessonsComponent,
         LessonTopicsComponent,
         TopicWidgetsComponent,
-        AdminComponent
+        AdminComponent,
+        NavbarComponent
     ],
     imports: [
         BrowserModule,
