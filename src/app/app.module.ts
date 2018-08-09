@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule } from '@angular/forms';
 
 import { routing } from './app.routing';
@@ -12,7 +13,6 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { ProfileComponent } from './profile/profile.component';
 import { UserServiceClient } from './services/user.service.client';
-import { SectionsComponent } from './sections/sections.component';
 import { SectionServiceClient } from './services/section.service.client';
 import { EnrollmentComponent } from './enrollment/enrollment.component';
 import { HomeComponent } from './home/home.component';
@@ -26,39 +26,41 @@ import { LessonServiceClient } from './services/lesson.service.client';
 import { TopicServiceClient } from './services/topic.service.client';
 import { TopicWidgetsComponent } from './topic-widgets/topic-widgets.component';
 import { WidgetServiceClient } from './services/widget.service.client';
+import { AdminComponent } from './admin/admin.component';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    WhiteboardComponent,
-    CourseNavigatorComponent,
-    LoginComponent,
-    RegisterComponent,
-    ProfileComponent,
-    SectionsComponent,
-    EnrollmentComponent,
-    HomeComponent,
-    CourseViewerComponent,
-    CourseSectionsComponent,
-    CourseModulesComponent,
-    ModuleLessonsComponent,
-    LessonTopicsComponent,
-    TopicWidgetsComponent
-  ],
-  imports: [
-    BrowserModule,
-    FormsModule,
-    routing
-  ],
-  providers: [
-    CourseServiceClient,
-    ModuleServiceClient,
-    LessonServiceClient,
-    TopicServiceClient,
-    WidgetServiceClient,
-    SectionServiceClient,
-    UserServiceClient
-  ],
-  bootstrap: [AppComponent]
+    declarations: [
+        AppComponent,
+        WhiteboardComponent,
+        CourseNavigatorComponent,
+        LoginComponent,
+        RegisterComponent,
+        ProfileComponent,
+        EnrollmentComponent,
+        HomeComponent,
+        CourseViewerComponent,
+        CourseSectionsComponent,
+        CourseModulesComponent,
+        ModuleLessonsComponent,
+        LessonTopicsComponent,
+        TopicWidgetsComponent,
+        AdminComponent
+    ],
+    imports: [
+        BrowserModule,
+        FormsModule,
+        NgbModule.forRoot(),
+        routing
+    ],
+    providers: [
+        CourseServiceClient,
+        ModuleServiceClient,
+        LessonServiceClient,
+        TopicServiceClient,
+        WidgetServiceClient,
+        SectionServiceClient,
+        UserServiceClient
+    ],
+    bootstrap: [AppComponent]
 })
 export class AppModule { }

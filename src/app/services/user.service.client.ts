@@ -49,7 +49,7 @@ export class UserServiceClient {
     }
 
     currentUser = () => {
-        return fetch(`${this.NODE_WHITEBOARD_URL}/currentuser`, {
+        return fetch(`${this.NODE_WHITEBOARD_URL}/profile`, {
             credentials: 'include'
         })
             .then(response => response.json());

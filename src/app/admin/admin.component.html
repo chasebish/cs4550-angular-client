@@ -1,0 +1,45 @@
+<div>
+    <div class='row'>
+
+        <div class='col-md-6'>
+            <ul class='list-group'>
+                <li class='list-group-item topListItem'>
+                    Courses
+                </li>
+                <li (click)='selectCourse(course)' [ngClass]="{'active' : course.id === selectedCourse.id}" *ngFor='let course of courses'
+                    class='list-group-item'>
+                    {{course.title}}
+                </li>
+            </ul>
+        </div>
+
+        <div class='col-md-6'>
+            <ul class='list-group'>
+                <li class="list-group-item topListItem">
+                    Sections
+                    <button *ngIf='!selectedSection.title' (click)="addSection(section, selectedCourse.id)" class="btn btn-success btn-sm float-right">Add</button>
+                    <div *ngIf='selectedSection.title' class='btn-toolbar float-right'>
+                        <button (click)="updateSection(section, selectedCourse.id)" class="btn btn-success btn-sm float-right mr-1">Update</button>
+                        <button (click)="clear()" class="btn btn-secondary btn-sm float-right ml-1">Clear</button>
+                    </div>
+                </li>
+                <li class="list-group-item">
+                    <label for='sectionTitle'>Section Title</label>
+                    <input id='sectionTitle' [(ngModel)]="section.title" class="form-control">
+                    <label for='sectionSeats' class='mt-2'>Section Seats</label>
+                    <input id='sectionSeats' [(ngModel)]="section.seats" class="form-control">
+                </li>
+                <li *ngFor='let section of sections' class='list-group-item'>
+                    Section Name: {{section.title}}
+                    <div class='btn-toolbar float-right'>
+                        <button (click)='deleteSection(section)' class="btn btn-danger mr-1">Delete</button>
+                        <button (click)='selectSection(section)' class="btn btn-primary ml-1">Edit</button>
+                    </div>
+                    <br> Available Seats: {{section.seats}}
+                </li>
+            </ul>
+        </div>
+
+    </div>
+
+</div>

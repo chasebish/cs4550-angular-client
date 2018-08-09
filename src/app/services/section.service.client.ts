@@ -20,9 +20,26 @@ export class SectionServiceClient {
         fetch(`${this.NODE_WHITEBOARD_URL}/course/${courseId}/section`)
             .then(response => response.json())
 
-    createSection = section =>
-        fetch(`${this.NODE_WHITEBOARD_URL}/section`, {
+    createSection = (section, courseId) =>
+        fetch(`${this.NODE_WHITEBOARD_URL}/course/${courseId}/section`, {
             method: 'post',
+            headers: {
+                'content-type': 'application/json'
+            },
+            credentials: 'include',
+            body: JSON.stringify(section)
+        })
+            .then(response => response.json())
+
+    deleteSection = section =>
+        fetch(`${this.NODE_WHITEBOARD_URL}/section/${section._id}`, {
+            method: 'delete',
+            credentials: 'include'
+        })
+
+    updateSection = section =>
+        fetch(`${this.NODE_WHITEBOARD_URL}/section/${section._id}`, {
+            method: 'put',
             headers: {
                 'content-type': 'application/json'
             },
