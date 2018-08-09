@@ -2,7 +2,8 @@
     <h5>Lessons</h5>
     <ul class='nav nav-tabs'>
         <li *ngFor='let lesson of lessons' class='nav-item'>
-            <a [ngClass]="{'active' : lesson.id.toString() === lessonId}" routerLink='/course/{{courseId}}/module/{{moduleId}}/lesson/{{lesson.id}}' class='nav-link'>
+            <a [ngClass]="{'bg-dark': lesson.id.toString() === lessonId, 'bg-secondary': lesson.id.toString() !== lessonId}" class='nav-link text-light'
+                routerLink='/course/{{courseId}}/module/{{moduleId}}/lesson/{{lesson.id}}'>
                 {{lesson.title}} - {{lesson.id}}
             </a>
         </li>

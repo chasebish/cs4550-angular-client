@@ -1,7 +1,8 @@
 <div>
     <h5>Modules</h5>
     <ul class='list-group'>
-        <li routerLink='/course/{{courseId}}/module/{{module.id}}' [ngClass]="{'active' : module.id.toString() === moduleId}" *ngFor='let module of modules' class='list-group-item'>
+        <li routerLink='/course/{{courseId}}/module/{{module.id}}' [ngClass]="{'active' : module.id.toString() === moduleId}" *ngFor='let module of modules'
+            class='list-group-item list-group-item-action list-group-item-secondary'>
             {{module.title}} - {{module.id}}
         </li>
     </ul>
