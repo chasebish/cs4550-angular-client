@@ -31,6 +31,10 @@ export class RegisterComponent implements OnInit {
             .then(() => this.router.navigate(['profile']), () => alert('Username not available'));
     }
 
+    login = () => {
+        this.router.navigate(['login']);
+    }
+
     ngOnInit() {
     }
 
