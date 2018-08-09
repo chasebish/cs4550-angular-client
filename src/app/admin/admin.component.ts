@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CourseServiceClient } from '../services/course.service.client';
 import { SectionServiceClient } from '../services/section.service.client';
-import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
+import { Router } from '../../../node_modules/@angular/router';
 
 @Component({
     selector: 'app-admin',
@@ -15,13 +15,10 @@ export class AdminComponent implements OnInit {
     section: any = {};
     sections: any = [];
     selectedSection: any = {};
-    openModal = false;
-
 
     closeResult: string;
 
-    constructor(private sectionService: SectionServiceClient, private courseService: CourseServiceClient,
-        private modalService: NgbModal) { }
+    constructor(private sectionService: SectionServiceClient, private courseService: CourseServiceClient, private router: Router) { }
 
     ngOnInit() {
         this.courseService.findAllCourses()
@@ -33,10 +30,18 @@ export class AdminComponent implements OnInit {
         this.selectedSection = {};
     }
 
+    populateSection = (selectedCourse, sections) => {
+        this.section.title = `${selectedCourse.title} - Section ${sections.length + 1}`;
+        this.section.seats = 35;
+    }
+
     selectCourse = selectedCourse => {
         this.selectedCourse = selectedCourse;
         this.sectionService.findSectionsForCourse(selectedCourse.id)
-            .then(sections => this.sections = sections);
+            .then(sections => {
+                this.sections = sections;
+                this.populateSection(selectedCourse, sections);
+            });
     }
 
     selectSection = selectedSection => {
@@ -107,7 +112,13 @@ export class AdminComponent implements OnInit {
             .then(() => {
                 return this.sectionService.findSectionsForCourse(this.selectedCourse.id);
             })
-            .then(sections => this.sections = sections)
-            .then(() => this.clear());
+            .then(sections => {
+                this.sections = sections;
+                this.populateSection(this.selectedCourse, sections);
+            });
     }
+
+    homePage = () => this.router.navigate(['']);
+    profilePage = () => this.router.navigate(['profile']);
+
 }

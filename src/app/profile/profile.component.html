@@ -1,6 +1,9 @@
 <div>
     <h3>Profile</h3>
     <h5>Welcome {{username}}</h5>
+    <button *ngIf="role === 'ADMIN'"(click)='adminPage()' class='btn btn-primary btn-block'>
+        ADMIN PAGE
+    </button>
     <label for='username' class='mt-2 mb-0'>Username</label>
     <input [(ngModel)]='username' id='username' class='form-control' readonly />
     <label for='password' class='mt-2 mb-0'>Password</label>

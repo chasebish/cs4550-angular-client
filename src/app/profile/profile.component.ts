@@ -55,4 +55,6 @@ export class ProfileComponent implements OnInit {
             .then(() => this.router.navigate(['login']), () => alert('Logout error'));
     }
 
+    adminPage = () => this.router.navigate(['admin']);
+
 }
