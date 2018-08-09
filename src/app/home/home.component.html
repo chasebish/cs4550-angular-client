@@ -1,14 +1,30 @@
 <div>
-    <h2>Home</h2>
-    <div class="row">
-        <div *ngFor="let course of courses" class="col-xl-3 col-lg-4 col-md-6 mt-3">
-            <div class="card text-white bg-dark">
-                <div class="card-body">
-                    <h5 class="card-title">{{course.title}}</h5>
-                    <p class="card-text"></p>
-                    <div class='btn-toolbar'>
-                        <a routerLink="/course/{{course.id}}" class="btn btn-info mr-1">View</a>
-                        <a routerLink="/course/{{course.id}}/sections" class="btn btn-info ml-1">Sections</a>
+    <h1>Home</h1>
+    <div *ngIf='user.username'>
+        <h3>Your Sections</h3>
+        <div class="row">
+            <div *ngFor="let section of userSections" class="col-xl-3 col-md-4 col-sm-6 mt-3">
+                <div class="card text-white bg-info">
+                    <div class="card-body">
+                        <h5 class="card-title">{{section.title}}</h5>
+                        <p class="card-text">Seats: {{section.seats}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class='mt-3'>
+        <h3>Available Courses</h3>
+        <div class="row">
+            <div *ngFor="let course of courses" class="col-xl-3 col-lg-4 col-md-6 mt-3">
+                <div class="card text-white bg-dark">
+                    <div class="card-body">
+                        <h5 class="card-title">{{course.title}}</h5>
+                        <p class="card-text"></p>
+                        <div class='btn-toolbar'>
+                            <a routerLink="/course/{{course.id}}" class="btn btn-info mr-2">View</a>
+                            <a routerLink="/course/{{course.id}}/sections" class="btn btn-info">Sections</a>
+                        </div>
                     </div>
                 </div>
             </div>
