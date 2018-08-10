@@ -1,21 +1,97 @@
 <div>
     <h1 class="display-3">Course Viewer</h1>
+
     <div class='row'>
         <div class='col-md-4'>
             <div>
                 <h5>Modules</h5>
                 <ul class='list-group'>
-                    <li routerLink='/course/{{courseId}}/module/{{module.id}}' [ngClass]="{'active' : module.id.toString() === moduleId}" *ngFor='let module of modules'
-                        class='list-group-item list-group-item-action list-group-item-secondary'>
-                        {{module.title}} - {{module.id}}
+                    <li (click)='selectModule(module)' [ngClass]="{'active' : module.id === moduleId}" *ngFor='let module of modules' class='list-group-item list-group-item-action list-group-item-secondary'>
+                        {{module.title}}
                     </li>
                 </ul>
             </div>
         </div>
         <div class='col-md-8'>
-            <app-module-lessons></app-module-lessons>
-            <app-lesson-topics></app-lesson-topics>
-            <app-topic-widgets></app-topic-widgets>
+            <div *ngIf='lessons.length > 0'>
+                <h5>Lessons</h5>
+                <ul class='nav nav-tabs'>
+                    <li *ngFor='let lesson of lessons' class='nav-item mr-1 mt-1'>
+                        <a [ngClass]="{'bg-dark': lesson.id === lessonId, 'bg-secondary': lesson.id !== lessonId}" class='nav-link text-light'
+                            (click)='selectLesson(lesson)'>
+                            {{lesson.title}}
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div *ngIf='topics.length > 0' class='mt-3'>
+                <h5>Topics</h5>
+                <ul class='nav nav-pills'>
+                    <li *ngFor='let topic of topics' class='nav-item mt-1 mr-1'>
+                        <a [ngClass]="{'bg-dark': topic.id === topicId, 'bg-secondary': topic.id !== topicId}" class='nav-link text-light' (click)='selectTopic(topic)'>
+                            {{topic.title}} - {{topic.id}}
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div *ngIf='widgets.length > 0' class='mt-3'>
+                <h5>Widgets</h5>
+                <ul class='list-group'>
+                    <li *ngFor='let widget of widgets' class='list-group-item mt-2'>
+                        <div [ngSwitch]="widget.className">
+                            <div *ngSwitchCase="'HEADING'">
+                                <h6>Title: {{widget.name}} --- Heading Size {{widget.size}}</h6>
+                                <hr>
+                                <div [ngSwitch]="widget.size">
+                                    <h1 *ngSwitchCase="'1'">{{widget.text}}</h1>
+                                    <h2 *ngSwitchCase="'2'">{{widget.text}}</h2>
+                                    <h3 *ngSwitchCase="'3'">{{widget.text}}</h3>
+                                    <h4 *ngSwitchCase="'4'">{{widget.text}}</h4>
+                                    <h5 *ngSwitchCase="'5'">{{widget.text}}</h5>
+                                    <h6 *ngSwitchCase="'6'">{{widget.text}}</h6>
+                                </div>
+                            </div>
+                            <div *ngSwitchCase="'IMAGE'" class="text-center">
+                                <h6>Title: {{widget.name}}</h6>
+                                <hr>
+                                <img src={{widget.src}} class="img-fluid" alt="Responsive image"/>
+                            </div>
+                            <div *ngSwitchCase="'LINK'">
+                                <h6>Title: {{widget.name}}</h6>
+                                <hr>
+                                <a href={{widget.href}}>{{widget.text}}</a>
+                            </div>
+                            <div *ngSwitchCase="'PARAGRAPH'">
+                                <h6>Title: {{widget.name}}</h6>
+                                <hr>
+                                <p>
+                                    {{widget.text}}
+                                </p>
+                            </div>
+                            <div *ngSwitchCase="'LIST'">
+                                <h6>Title: {{widget.name}}</h6>
+                                <hr>
+                                <div [ngSwitch]="widget.listType">
+                                    <div *ngSwitchCase="'ORDERED'">
+                                        <ol>
+                                            <li *ngFor="let item of widget.listItems.split('\n')">
+                                                {{item}}
+                                            </li>
+                                        </ol>
+                                    </div>
+                                    <div *ngSwitchCase="'UNORDERED'">
+                                        <ul>
+                                            <li *ngFor="let item of widget.listItems.split('\n')">
+                                                {{item}}
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
         </div>
     </div>
 </div>
