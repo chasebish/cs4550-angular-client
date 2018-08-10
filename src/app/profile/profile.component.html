@@ -62,4 +62,20 @@
             </button>
         </div>
     </div>
+    <hr class="my-4">
+    <div *ngIf='username'>
+        <div *ngIf='userSections.length > 0'>
+            <h1 class="display-4">Your Sections</h1>
+            <div class="row">
+                <div *ngFor="let section of userSections" class="col-xl-3 col-md-4 col-sm-6 mt-3">
+                    <div class="card text-white bg-info">
+                        <div class="card-body">
+                            <h5 class="card-title">{{section.title}}</h5>
+                            <p class="card-text">Seats: {{section.seats}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

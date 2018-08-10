@@ -29,7 +29,7 @@
                 <ul class='nav nav-pills'>
                     <li *ngFor='let topic of topics' class='nav-item mt-1 mr-1'>
                         <a [ngClass]="{'bg-dark': topic.id === topicId, 'bg-secondary': topic.id !== topicId}" class='nav-link text-light' (click)='selectTopic(topic)'>
-                            {{topic.title}} - {{topic.id}}
+                            {{topic.title}}
                         </a>
                     </li>
                 </ul>

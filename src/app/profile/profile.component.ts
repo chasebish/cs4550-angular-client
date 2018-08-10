@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UserServiceClient } from '../services/user.service.client';
+import { EnrollServiceClient } from '../services/enroll.service.client';
 import { Router } from '../../../node_modules/@angular/router';
 
 @Component({
@@ -18,7 +19,9 @@ export class ProfileComponent implements OnInit {
     address: String;
     role: String;
 
-    constructor(private router: Router, private userService: UserServiceClient) { }
+    userSections: any = [];
+
+    constructor(private router: Router, private userService: UserServiceClient, private enrollService: EnrollServiceClient) { }
 
     ngOnInit() {
         this.userService.currentUser()
@@ -31,10 +34,21 @@ export class ProfileComponent implements OnInit {
                 this.email = user.email;
                 this.address = user.address;
                 this.role = user.role;
+
+                this.enrollService.studentSections(user._id)
+                    .then(enrollments => this.enrollmentsToSections(enrollments));
             }, () => {
                 this.router.navigate(['login']);
                 alert('You aren\'t logged in!');
             });
+    }
+
+    enrollmentsToSections = enrollments => {
+        this.userSections = enrollments.map(enrollment => {
+            const section = enrollment.sectionId;
+            section.enrollmentId = enrollment._id;
+            return section;
+        });
     }
 
     updateUser = (password, firstName, lastName, phone, email, address) => {
