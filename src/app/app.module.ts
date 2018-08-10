@@ -8,13 +8,11 @@ import { routing } from './app.routing';
 import { AppComponent } from './app.component';
 import { WhiteboardComponent } from './whiteboard/whiteboard.component';
 import { CourseServiceClient } from './services/course.service.client';
-import { CourseNavigatorComponent } from './course-navigator/course-navigator.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { ProfileComponent } from './profile/profile.component';
 import { UserServiceClient } from './services/user.service.client';
 import { SectionServiceClient } from './services/section.service.client';
-import { EnrollmentComponent } from './enrollment/enrollment.component';
 import { HomeComponent } from './home/home.component';
 import { CourseViewerComponent } from './course-viewer/course-viewer.component';
 import { CourseSectionsComponent } from './course-sections/course-sections.component';
@@ -34,11 +32,9 @@ import { NavbarComponent } from './navbar/navbar.component';
     declarations: [
         AppComponent,
         WhiteboardComponent,
-        CourseNavigatorComponent,
         LoginComponent,
         RegisterComponent,
         ProfileComponent,
-        EnrollmentComponent,
         HomeComponent,
         CourseViewerComponent,
         CourseSectionsComponent,
