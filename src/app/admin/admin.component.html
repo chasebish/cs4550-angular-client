@@ -1,6 +1,6 @@
 <div>
 
-    <h2>Admin</h2>
+    <h1 class="display-1">Admin</h1>
     <div class='btn-toolbar mb-2'>
         <button (click)="homePage()" class="btn btn-outline-primary float-right mr-1">Home</button>
         <button (click)="profilePage()" class="btn btn-outline-primary float-right ml-1">Profile</button>
@@ -8,11 +8,11 @@
     <div class='row'>
         <div class='col-md-6'>
             <ul class='list-group'>
-                <li class='list-group-item topListItem'>
+                <li class='list-group-item list-group-item-action list-group-item-dark active topListItem'>
                     Courses
                 </li>
                 <li (click)='selectCourse(course)' [ngClass]="{'active' : course.id === selectedCourse.id}" *ngFor='let course of courses'
-                    class='list-group-item'>
+                    class='list-group-item list-group-item-action list-group-item-secondary'>
                     {{course.title}}
                 </li>
             </ul>
@@ -20,25 +20,25 @@
 
         <div class='col-md-6'>
             <ul class='list-group'>
-                <li class="list-group-item topListItem">
+                <li class="list-group-item list-group-item-action list-group-item-dark active">
                     Sections
-                    <button *ngIf='!selectedSection.title' (click)="addSection(section, selectedCourse.id)" class="btn btn-success btn-sm float-right">Add</button>
+                    <button *ngIf='!selectedSection.title' (click)="addSection(section, selectedCourse.id)" class="btn btn-outline-success btn-sm float-right">Add</button>
                     <div *ngIf='selectedSection.title' class='btn-toolbar float-right'>
-                        <button (click)="updateSection(section, selectedCourse.id)" class="btn btn-success btn-sm float-right mr-1">Update</button>
-                        <button (click)="clear()" class="btn btn-secondary btn-sm float-right ml-1">Clear</button>
+                        <button (click)="updateSection(section, selectedCourse.id)" class="btn btn-outline-success btn-sm float-right mr-1">Update</button>
+                        <button (click)="clear()" class="btn btn-outline-secondary btn-sm float-right ml-1">Clear</button>
                     </div>
                 </li>
-                <li class="list-group-item">
+                <li class="list-group-item list-group-item-action list-group-item-dark active">
                     <label for='sectionTitle'>Section Title</label>
                     <input id='sectionTitle' [(ngModel)]="section.title" class="form-control">
                     <label for='sectionSeats' class='mt-2'>Section Seats</label>
                     <input id='sectionSeats' [(ngModel)]="section.seats" class="form-control">
                 </li>
-                <li *ngFor='let section of sections' class='list-group-item'>
+                <li *ngFor='let section of sections' class='list-group-item list-group-item-action list-group-item-secondary'>
                     Section Name: {{section.title}}
                     <div class='btn-toolbar float-right'>
-                        <button (click)='deleteSection(section)' class="btn btn-danger mr-1">Delete</button>
-                        <button (click)='selectSection(section)' class="btn btn-primary ml-1">Edit</button>
+                        <button (click)='deleteSection(section)' class="btn btn-outline-danger mr-1">Delete</button>
+                        <button (click)='selectSection(section)' class="btn btn-outline-primary ml-1">Edit</button>
                     </div>
                     <br> Available Seats: {{section.seats}}
                 </li>

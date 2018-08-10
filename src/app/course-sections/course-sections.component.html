@@ -1,13 +1,13 @@
 <div>
-    <h2>Sections</h2>
+    <h1 class="display-1">Sections</h1>
     <div class='row'>
 
         <div class='col-md-6'>
             <ul class='list-group'>
-                <li class='list-group-item topListItem'>
+                <li class='list-group-item list-group-item-action list-group-item-dark active topListItem'>
                     Sections
                 </li>
-                <li *ngFor='let section of sections' class='list-group-item'>
+                <li *ngFor='let section of sections' class='list-group-item list-group-item-action list-group-item-secondary active'>
                     {{section.title}}
                     <button [ngClass]="{'disabled' : disableSection(section)}" (click)='enroll(section)' class='btn btn-outline-success btn-sm float-right'>
                         Enroll!
@@ -19,7 +19,7 @@
 
         <div class='col-md-6'>
             <ul class='list-group'>
-                <li class='list-group-item topListItem'>
+                <li class='list-group-item list-group-item-action list-group-item-dark active topListItem'>
                     <div *ngIf='user.username'>
                         Sections for: {{user.username}}
                     </div>
@@ -27,7 +27,7 @@
                         Not logged in
                     </div>
                 </li>
-                <li *ngFor='let section of userSections' class='list-group-item'>
+                <li *ngFor='let section of userSections' class='list-group-item list-group-item-action list-group-item-secondary active'>
                     {{section.title}}
                     <button (click)='dropSection(section)' class='btn btn-outline-warning btn-sm float-right'>
                         Drop Section
