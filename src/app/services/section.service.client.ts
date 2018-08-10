@@ -3,8 +3,7 @@ import { Injectable } from '../../../node_modules/@angular/core';
 @Injectable()
 export class SectionServiceClient {
 
-    // private NODE_WHITEBOARD_URL = 'https://whiteboard-node-chasebish.herokuapp.com/api';
-    private NODE_WHITEBOARD_URL = 'http://localhost:3000/api';
+    private NODE_WHITEBOARD_URL = 'https://whiteboard-node-chasebish.herokuapp.com/api';
 
     enroll = sectionId =>
         fetch(`${this.NODE_WHITEBOARD_URL}/section/${sectionId}/enroll`, {
