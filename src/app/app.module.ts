@@ -27,10 +27,6 @@ import { QuizComponent } from './quiz/quiz.component';
 import { QuizServiceClient } from './services/quiz.service.client';
 import { QuizTakerComponent } from './quiz-taker/quiz-taker.component';
 import { QuestionServiceClient } from './services/question.service.client';
-import { EssayComponent } from './essay/essay.component';
-import { FillBlanksComponent } from './fill-blanks/fill-blanks.component';
-import { TrueFalseComponent } from './true-false/true-false.component';
-import { ChoiceComponent } from './choice/choice.component';
 
 @NgModule({
     declarations: [
@@ -46,10 +42,6 @@ import { ChoiceComponent } from './choice/choice.component';
         NavbarComponent,
         QuizComponent,
         QuizTakerComponent,
-        EssayComponent,
-        FillBlanksComponent,
-        TrueFalseComponent,
-        ChoiceComponent
     ],
     imports: [
         BrowserModule,

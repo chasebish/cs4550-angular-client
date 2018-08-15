@@ -3,9 +3,9 @@
     <ul class="list-group">
         <li *ngFor="let quiz of quizzes" class="list-group-item">
             {{quiz.title}}
-            <a class="btn btn-primary float-right text-white" href="/quiz/{{quiz._id}}">
+            <button (click)="quizNav(quiz._id)" class="btn btn-primary float-right text-white">
                 Take Quiz
-            </a>
+            </button>
         </li>
     </ul>
 </div>

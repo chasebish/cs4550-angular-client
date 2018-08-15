@@ -4,17 +4,52 @@
 
         <h4 class="font-weight-light">{{question.title}} - {{question.points}} points</h4>
         <div *ngIf="question.questionType === 'ESSAY'">
-            <p>{{question.description}}</p>
+            Answer the question in the text-box below
+            <hr> {{question.description}}
+            <textarea [(ngModel)]="question.essayAnswer" class="form-control mt-2 textArea"></textarea>
         </div>
         <div *ngIf="question.questionType === 'FILL_BLANKS'">
-            <p>{{question.description}}</p>
+            Select all correct answers
+            <hr> {{question.description}}
+            <div class="form-check mt-2">
+                <span [ngSwitch]="blank.indexOf('*')" *ngFor="let blank of question.blanks">
+                    <span *ngSwitchCase="-1">{{blank}}</span>
+                    <span *ngSwitchCase="0">
+                        <input [(ngModel)]="question.fillBlanksAnswers[blank]">
+                    </span>
+                </span>
+            </div>
         </div>
         <div *ngIf="question.questionType === 'TRUE_FALSE'">
-            <p>{{question.description}}</p>
+            Select either true or false
+            <hr> {{question.description}}
+            <div class="mt-2">
+                <div class="form-check-inline">
+                    <input (click)="trueFalseClick(question, true)" class="form-check-input" type="radio" id="true">
+                    <label class="form-check-label" for="true">True</label>
+                </div>
+                <div class="form-check-inline">
+                    <input (click)="trueFalseClick(question, false)" class="form-check-input" type="radio" id="false">
+                    <label class="form-check-label" for="false">False</label>
+                </div>
+            </div>
         </div>
         <div *ngIf="question.questionType === 'CHOICE'">
-            <p>{{question.description}}</p>
+            Select the correct answer
+            <hr> {{question.description}}
+            <ul class="mt-2 list-group">
+                <label *ngFor="let choice of question.choices" (click)="selectChoice(question, choice.choiceValue)" class="list-group-item"
+                    [ngClass]="{'active': choice.choiceValue === selectedChoice}">
+                    <input name="{{question._id}}" type="radio">&nbsp;&nbsp;&nbsp;{{choice.choiceValue}}. {{choice.text}}
+                </label>
+            </ul>
         </div>
 
     </div>
+    <button (click)="cancel()" class="btn btn-danger btn-block mb-2">
+        Cancel
+    </button>
+    <button (click)="submit(quiz, questions)" class="btn btn-success btn-block mb-5">
+        Submit Quiz
+    </button>
 </div>
