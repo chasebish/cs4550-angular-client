@@ -1,12 +1,11 @@
 import { Injectable } from '../../../node_modules/@angular/core';
+import { NODE_WHITEBOARD_URL } from '../constants';
 
 @Injectable()
 export class EnrollServiceClient {
 
-    private NODE_WHITEBOARD_URL = 'https://whiteboard-node-chasebish.herokuapp.com/api';
-
     enrollStudent = (studentId, sectionId) => {
-        return fetch(`${this.NODE_WHITEBOARD_URL}/student/${studentId}/section/${sectionId}`, {
+        return fetch(`${NODE_WHITEBOARD_URL}/student/${studentId}/section/${sectionId}`, {
             method: 'POST',
             credentials: 'include'
         })
@@ -14,7 +13,7 @@ export class EnrollServiceClient {
     }
 
     dropSection = (studentId, sectionId, enrollmentId) => {
-        return fetch(`${this.NODE_WHITEBOARD_URL}/student/${studentId}/section/${sectionId}`, {
+        return fetch(`${NODE_WHITEBOARD_URL}/student/${studentId}/section/${sectionId}`, {
             method: 'DELETE',
             credentials: 'include',
             headers: {
@@ -25,7 +24,7 @@ export class EnrollServiceClient {
     }
 
     studentSections = studentId => {
-        return fetch(`${this.NODE_WHITEBOARD_URL}/student/${studentId}/section`, {
+        return fetch(`${NODE_WHITEBOARD_URL}/student/${studentId}/section`, {
             credentials: 'include'
         })
             .then(response => response.json());

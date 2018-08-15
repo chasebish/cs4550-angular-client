@@ -1,12 +1,11 @@
 import { Injectable } from '../../../node_modules/@angular/core';
+import { NODE_WHITEBOARD_URL } from '../constants';
 
 @Injectable()
 export class UserServiceClient {
 
-    private NODE_WHITEBOARD_URL = 'https://whiteboard-node-chasebish.herokuapp.com/api';
-
     register = user => {
-        return fetch(`${this.NODE_WHITEBOARD_URL}/register`, {
+        return fetch(`${NODE_WHITEBOARD_URL}/register`, {
             method: 'POST',
             credentials: 'include',
             headers: {
@@ -18,7 +17,7 @@ export class UserServiceClient {
     }
 
     login = user => {
-        return fetch(`${this.NODE_WHITEBOARD_URL}/login`, {
+        return fetch(`${NODE_WHITEBOARD_URL}/login`, {
             method: 'POST',
             credentials: 'include',
             headers: {
@@ -30,7 +29,7 @@ export class UserServiceClient {
     }
 
     updateUser = user => {
-        return fetch(`${this.NODE_WHITEBOARD_URL}/profile`, {
+        return fetch(`${NODE_WHITEBOARD_URL}/profile`, {
             method: 'PUT',
             credentials: 'include',
             headers: {
@@ -42,14 +41,14 @@ export class UserServiceClient {
     }
 
     logout = () => {
-        return fetch(`${this.NODE_WHITEBOARD_URL}/logout`, {
+        return fetch(`${NODE_WHITEBOARD_URL}/logout`, {
             method: 'POST',
             credentials: 'include'
         });
     }
 
     currentUser = () => {
-        return fetch(`${this.NODE_WHITEBOARD_URL}/profile`, {
+        return fetch(`${NODE_WHITEBOARD_URL}/profile`, {
             credentials: 'include'
         })
             .then(response => response.json());

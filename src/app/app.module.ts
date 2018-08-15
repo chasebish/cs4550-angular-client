@@ -23,6 +23,8 @@ import { WidgetServiceClient } from './services/widget.service.client';
 import { AdminComponent } from './admin/admin.component';
 import { EnrollServiceClient } from './services/enroll.service.client';
 import { NavbarComponent } from './navbar/navbar.component';
+import { QuizComponent } from './quiz/quiz.component';
+import { QuizServiceClient } from './services/quiz.service.client';
 
 @NgModule({
     declarations: [
@@ -35,7 +37,8 @@ import { NavbarComponent } from './navbar/navbar.component';
         CourseViewerComponent,
         CourseSectionsComponent,
         AdminComponent,
-        NavbarComponent
+        NavbarComponent,
+        QuizComponent
     ],
     imports: [
         BrowserModule,
@@ -51,7 +54,8 @@ import { NavbarComponent } from './navbar/navbar.component';
         WidgetServiceClient,
         SectionServiceClient,
         UserServiceClient,
-        EnrollServiceClient
+        EnrollServiceClient,
+        QuizServiceClient
     ],
     bootstrap: [AppComponent]
 })

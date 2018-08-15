@@ -30,6 +30,7 @@ export class NavbarComponent implements OnInit {
     profile = () => this.router.navigate(['profile']);
     register = () => this.router.navigate(['register']);
     login = () => this.router.navigate(['login']);
+    quiz = () => this.router.navigate(['quiz']);
     logout = () => this.userService.logout()
         .then(() => {
             this.router.navigate(['login']);
