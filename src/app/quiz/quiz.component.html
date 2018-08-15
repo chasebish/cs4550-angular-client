@@ -1,3 +1,11 @@
-<p>
-  quiz works!
-</p>
+<div>
+    <h1 class="display-1">Quizzes</h1>
+    <ul class="list-group">
+        <li *ngFor="let quiz of quizzes" class="list-group-item">
+            {{quiz.title}}
+            <a class="btn btn-primary float-right text-white" href="/quiz/{{quiz._id}}">
+                Take Quiz
+            </a>
+        </li>
+    </ul>
+</div>

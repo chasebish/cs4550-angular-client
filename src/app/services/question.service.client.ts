@@ -2,18 +2,15 @@ import { Injectable } from '../../../node_modules/@angular/core';
 import { NODE_WHITEBOARD_URL } from '../constants';
 
 @Injectable()
-export class QuizServiceClient {
+export class QuestionServiceClient {
 
-    createQuis = quiz => {
-    }
-
-    findAllQuizzes = () => {
-        return fetch(`${NODE_WHITEBOARD_URL}/quiz`)
+    findAllQuestions = () => {
+        return fetch(`${NODE_WHITEBOARD_URL}/question`)
             .then(response => response.json());
     }
 
-    findQuizById = quizId => {
-        return fetch(`${NODE_WHITEBOARD_URL}/quiz/${quizId}`)
+    findQuestionById = questionId => {
+        return fetch(`${NODE_WHITEBOARD_URL}/question/${questionId}`)
             .then(response => response.json());
     }
 }

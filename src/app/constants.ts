@@ -1,2 +1,2 @@
 
-export const NODE_WHITEBOARD_URL = 'https://whiteboard-node-chasebish.herokuapp.com/api';
+export const NODE_WHITEBOARD_URL = 'http://localhost:3000/api';
