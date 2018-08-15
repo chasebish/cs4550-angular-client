@@ -32,6 +32,7 @@ export class QuizTakerComponent implements OnInit {
             this.quizService.findQuizById(params.quizId)
                 .then(quiz => {
                     this.getQuestions(quiz);
+                    this.quiz = quiz;
                 }, () => console.warn('Error getting Quiz'));
         });
     }

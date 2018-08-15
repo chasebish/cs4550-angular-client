@@ -1,3 +1,20 @@
 <div>
-    <h1 class="display-3">Quiz {{quiz}}</h1>
+    <h1 *ngIf="quiz" class="display-3">Quiz: {{quiz.title}}</h1>
+    <div *ngFor="let question of questions" class="jumbotron">
+
+        <h4 class="font-weight-light">{{question.title}} - {{question.points}} points</h4>
+        <div *ngIf="question.questionType === 'ESSAY'">
+            <p>{{question.description}}</p>
+        </div>
+        <div *ngIf="question.questionType === 'FILL_BLANKS'">
+            <p>{{question.description}}</p>
+        </div>
+        <div *ngIf="question.questionType === 'TRUE_FALSE'">
+            <p>{{question.description}}</p>
+        </div>
+        <div *ngIf="question.questionType === 'CHOICE'">
+            <p>{{question.description}}</p>
+        </div>
+
+    </div>
 </div>
