@@ -51,7 +51,6 @@ export class QuizTakerComponent implements OnInit {
     }
 
     selectChoice = (question, choiceValue) => {
-        console.log(choiceValue);
         this.selectedChoice = choiceValue;
         question.multipleChoiceAnswer = choiceValue;
     }
@@ -70,7 +69,6 @@ export class QuizTakerComponent implements OnInit {
 
         this.submissionService.submit(submission, quiz._id)
             .then(() => console.log(submission));
-        // console.log(submission);
     }
 
 }
