@@ -27,6 +27,7 @@ import { QuizComponent } from './quiz/quiz.component';
 import { QuizServiceClient } from './services/quiz.service.client';
 import { QuizTakerComponent } from './quiz-taker/quiz-taker.component';
 import { QuestionServiceClient } from './services/question.service.client';
+import { SubmissionServiceClient } from './services/submission.service.client';
 
 @NgModule({
     declarations: [
@@ -59,7 +60,8 @@ import { QuestionServiceClient } from './services/question.service.client';
         UserServiceClient,
         EnrollServiceClient,
         QuizServiceClient,
-        QuestionServiceClient
+        QuestionServiceClient,
+        SubmissionServiceClient
     ],
     bootstrap: [AppComponent]
 })

@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '../../../node_modules/@angular/router';
 import { QuizServiceClient } from '../services/quiz.service.client';
 import { QuestionServiceClient } from '../services/question.service.client';
 import { UserServiceClient } from '../services/user.service.client';
+import { SubmissionServiceClient } from '../services/submission.service.client';
 
 @Component({
     selector: 'app-quiz-taker',
@@ -17,7 +18,8 @@ export class QuizTakerComponent implements OnInit {
     selectedChoice = '';
 
     constructor(private quizService: QuizServiceClient, private questionService: QuestionServiceClient,
-        private userService: UserServiceClient, private activatedRoute: ActivatedRoute, private router: Router) { }
+        private userService: UserServiceClient, private submissionService: SubmissionServiceClient, private activatedRoute: ActivatedRoute,
+        private router: Router) { }
 
     getQuestions = quiz => {
         for (const questionId of quiz.questions) {
@@ -66,7 +68,9 @@ export class QuizTakerComponent implements OnInit {
             timestamp: new Date()
         };
 
-        console.log(submission);
+        this.submissionService.submit(submission, quiz._id)
+            .then(() => console.log(submission));
+        // console.log(submission);
     }
 
 }

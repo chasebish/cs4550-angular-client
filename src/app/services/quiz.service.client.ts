@@ -4,9 +4,6 @@ import { NODE_WHITEBOARD_URL } from '../constants';
 @Injectable()
 export class QuizServiceClient {
 
-    createQuis = quiz => {
-    }
-
     findAllQuizzes = () => {
         return fetch(`${NODE_WHITEBOARD_URL}/quiz`)
             .then(response => response.json());
