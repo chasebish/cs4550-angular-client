@@ -16,4 +16,16 @@ export class SubmissionServiceClient {
             .then(response => response.json());
     }
 
+    findSubmissionById = (quizId, submissionId) => {
+        return fetch(`${NODE_WHITEBOARD_URL}/quiz/${quizId}/submission/${submissionId}`)
+            .then(response => response.json());
+    }
+
+    findSubmissions = quizId => {
+        return fetch(`${NODE_WHITEBOARD_URL}/quiz/${quizId}/submission`, {
+            credentials: 'include'
+        })
+            .then(response => response.json());
+    }
+
 }

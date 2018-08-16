@@ -24,5 +24,6 @@ export class QuizComponent implements OnInit {
     }
 
     quizNav = quizId => this.router.navigate(['quiz/' + quizId]);
+    submissionsNav = quizId => this.router.navigate(['quiz/' + quizId + '/submission']);
 
 }

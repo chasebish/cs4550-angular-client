@@ -8,6 +8,8 @@ import { CourseSectionsComponent } from './course-sections/course-sections.compo
 import { AdminComponent } from './admin/admin.component';
 import { QuizComponent } from './quiz/quiz.component';
 import { QuizTakerComponent } from './quiz-taker/quiz-taker.component';
+import { QuizAnswersComponent } from './quiz-answers/quiz-answers.component';
+import { QuizSubmissionsComponent } from './quiz-submissions/quiz-submissions.component';
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
@@ -18,6 +20,8 @@ const appRoutes: Routes = [
   { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginComponent },
   { path: 'quiz', component: QuizComponent },
-  { path: 'quiz/:quizId', component: QuizTakerComponent }
+  { path: 'quiz/:quizId', component: QuizTakerComponent },
+  { path: 'quiz/:quizId/submission', component: QuizSubmissionsComponent },
+  { path: 'quiz/:quizId/submission/:submissionId', component: QuizAnswersComponent }
 ];
 export const routing = RouterModule.forRoot(appRoutes);

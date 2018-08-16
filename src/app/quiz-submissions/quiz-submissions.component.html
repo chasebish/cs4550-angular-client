@@ -1,0 +1,13 @@
+<div>
+    <h1 class="display-3">Submissions for &quot;{{quiz.title}}&quot;</h1>
+    <div class="row bg-secondary p-4">
+        <div *ngFor="let submission of submissions" class="card border-success mb-3 col-md-6 col-lg-4">
+            <div class="card-header bg-transparent border-success">Submission for &quot;{{user.username}}&quot;</div>
+            <div class="card-body text-success">
+                <h5 class="card-title">Review your Quiz!</h5>
+                <button (click)="submissionNav(submission._id)" class="btn btn-outline-success">Submission</button>
+            </div>
+            <div class="card-footer bg-transparent border-success">Submitted on {{submissionDate(submission)}}</div>
+        </div>
+    </div>
+</div>

@@ -28,6 +28,8 @@ import { QuizServiceClient } from './services/quiz.service.client';
 import { QuizTakerComponent } from './quiz-taker/quiz-taker.component';
 import { QuestionServiceClient } from './services/question.service.client';
 import { SubmissionServiceClient } from './services/submission.service.client';
+import { QuizAnswersComponent } from './quiz-answers/quiz-answers.component';
+import { QuizSubmissionsComponent } from './quiz-submissions/quiz-submissions.component';
 
 @NgModule({
     declarations: [
@@ -43,6 +45,8 @@ import { SubmissionServiceClient } from './services/submission.service.client';
         NavbarComponent,
         QuizComponent,
         QuizTakerComponent,
+        QuizAnswersComponent,
+        QuizSubmissionsComponent,
     ],
     imports: [
         BrowserModule,
