@@ -1,5 +1,70 @@
 <div>
-    <button (click)="console.log(submissions)">
-        log
+    <h1 *ngIf="submission" class="display-3">Your Submission</h1>
+    <div *ngFor="let answer of answers" class="jumbotron">
+
+        <h4 class="font-weight-light">{{answer.title}} - {{answer.points}} points</h4>
+        <div *ngIf="answer.questionType === 'ESSAY'">
+            Essay Question
+            <hr> {{answer.description}}
+            <br> Your Answer:
+            <br>
+            <textarea value="{{answer.essayAnswer}}" class="form-control mt-2 textArea" disabled></textarea>
+        </div>
+        <div *ngIf="answer.questionType === 'FILL_BLANKS'">
+            Fill in the Blanks Question
+            <hr> {{answer.description}}
+            <br> Your Answer
+            <br>
+            <div class="form-check mt-2">
+                <span [ngSwitch]="blank.indexOf('*')" *ngFor="let blank of answer.blanks">
+                    <span *ngSwitchCase="-1">{{blank}}</span>
+                    <span *ngSwitchCase="0">
+                        <input [(ngModel)]="answer.fillBlanksAnswers[blank]" disabled>
+                    </span>
+                </span>
+            </div>
+        </div>
+        <div *ngIf="answer.questionType === 'TRUE_FALSE'">
+            True or False question
+            <hr> {{answer.description}}
+            <br> Your Answer:
+            <br>
+            <div *ngIf="answer.trueFalseAnswer === true">
+                <div class="form-check form-check-inline mt-2">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="true" disabled checked>
+                    <label class="form-check-label" for="true">True</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="false" disabled>
+                    <label class="form-check-label" for="false">False</label>
+                </div>
+            </div>
+            <div *ngIf="answer.trueFalseAnswer === false">
+                <div class="form-check form-check-inline mt-2">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="true" disabled>
+                    <label class="form-check-label" for="true">True</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="false" disabled checked>
+                    <label class="form-check-label" for="false">False</label>
+                </div>
+            </div>
+        </div>
+        <div *ngIf="answer.questionType === 'CHOICE'">
+            Multiple Choice Question
+            <hr> {{answer.description}}
+            <br> Your Answer:
+            <br>
+            <ul class="mt-2 list-group">
+                <label *ngFor="let choice of answer.choices" class="list-group-item" [ngClass]="{'active': choice.choiceValue === answer.multipleChoiceAnswer}">
+                    <input *ngIf="choice.choiceValue === answer.multipleChoiceAnswer" name="{{answer._id}}" type="radio" disabled checked>
+                    <input *ngIf="choice.choiceValue !== answer.multipleChoiceAnswer" name="{{answer._id}}" type="radio" disabled> &nbsp;&nbsp;&nbsp;{{choice.choiceValue}}. {{choice.text}}
+                </label>
+            </ul>
+        </div>
+
+    </div>
+    <button (click)="backToSubmissions()" class="btn btn-success btn-block mb-5">
+        Back to Submissions
     </button>
 </div>

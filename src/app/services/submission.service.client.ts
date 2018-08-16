@@ -17,7 +17,9 @@ export class SubmissionServiceClient {
     }
 
     findSubmissionById = (quizId, submissionId) => {
-        return fetch(`${NODE_WHITEBOARD_URL}/quiz/${quizId}/submission/${submissionId}`)
+        return fetch(`${NODE_WHITEBOARD_URL}/quiz/${quizId}/submission/${submissionId}`, {
+            credentials: 'include'
+        })
             .then(response => response.json());
     }
 

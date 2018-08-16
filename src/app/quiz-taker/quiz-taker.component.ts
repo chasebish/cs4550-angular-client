@@ -67,8 +67,10 @@ export class QuizTakerComponent implements OnInit {
             timestamp: new Date()
         };
 
-        this.submissionService.submit(submission, quiz._id)
-            .then(() => console.log(submission));
+        console.log(submission.answers);
+        this.submissionService.submit(submission, quiz._id);
+        this.router.navigate(['/quiz']);
+        alert('Submission recieved!');
     }
 
 }
