@@ -13,7 +13,7 @@ export class QuizSubmissionsComponent implements OnInit {
 
     user = {};
     quizId: '';
-    quiz = {};
+    quiz: any = {};
     submissions = [];
 
     constructor(private submissionService: SubmissionServiceClient, private quizService: QuizServiceClient,
